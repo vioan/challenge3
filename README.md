@@ -98,7 +98,6 @@ Get the endpoint to access the deployed app
 aws elasticbeanstalk describe-environments --environment-names my-app-env  --query "Environments[*].CNAME" --output text
 ~~~
 
-
 ### Restrict the access to our web app only from a certain CIDR range
 
 **Note** the security group ids should be replaced with the ones fron the command output
@@ -159,6 +158,7 @@ Modify the `next start` command in our `package.json` file to listen not only on
     "react-dom": "^16.8.4"
   }
 }
+~~~
 
 Create a repo for our docker image on ECR
 ~~~
@@ -257,19 +257,19 @@ sudo chmod 755 /usr/local/bin/eksctl
 Create the eks cluster
 ~~~
 eksctl create cluster \
- --name my-cluster \
- --version 1.16 \
- --without-nodegroup
+  --name my-cluster \
+  --version 1.16 \
+  --without-nodegroup
 
 eksctl create nodegroup \
---cluster my-cluster \
---version auto \
---name standard-workers \
---node-type t3.medium \
---node-ami auto \
---nodes 2 \
---nodes-min 1 \
---nodes-max 4
+  --cluster my-cluster \
+  --version auto \
+  --name standard-workers \
+  --node-type t3.medium \
+  --node-ami auto \
+  --nodes 2 \
+  --nodes-min 1 \
+  --nodes-max 4
 ~~~
 
 #### Deploy the app:
