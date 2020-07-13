@@ -294,6 +294,7 @@ echo `kubectl -n app-namespace get svc app-service -o jsonpath={'.status'.loadBa
 
 Use the loadbalancer name in your browser to see the deployed app
 
-### Improvements of the app
+### Issues 
 
-
+- outdated node js packages containing vulenrabilities
+- inline css isn’t the best way to implement css in app
